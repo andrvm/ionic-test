@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start">
+      Список дел
+    </ion-title>
+    <ion-button slot="end" fill="outline" (click)="authService.signOut()"
+                style="margin-right: 10px">
+      Выйти
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-row style="margin: 10px 0">
+    <ion-col class="center">
+      <ion-button color="primary" [routerLink]="'new-item'" style="width: 20%">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        Добавить
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item *ngFor="let item of userItems | async">
+      <ion-label [ngClass]="item.done ? 'disable' : ''">
+        {{item.name}}
+        <p>Автор: {{item.authorName}}, дата:  {{item.date}}</p>
+      </ion-label>
+      <ng-container *ngIf="item.done">
+        <p style="color: #2dd36f;">
+          <strong>Исполнено</strong>
+          <br/>{{item.authorDoneName}}
+        </p>
+      </ng-container>
+      <ion-checkbox slot="start" (click)="done(item)" [(ngModel)]="item.done"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
