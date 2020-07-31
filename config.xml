@@ -99,4 +99,14 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <universal-links>
+        <host name="ionic-test-8075d.firebaseapp.com" scheme="https" />
+        <host name="ionic-test-8075d.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
+    <allow-navigation href="http://*" />
+    <allow-navigation href="https://*" />
+    <preference name="OverrideUserAgent" value="Mozilla/5.0 Google" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
 </widget>

@@ -36,7 +36,10 @@ export class AuthenticationService {
     }
 
     authLogin(provider) {
-        return this.ngFireAuth.signInWithPopup(provider)
+        return this.ngFireAuth.signInWithRedirect(provider)
+            .then((result) => {
+                return this.ngFireAuth.getRedirectResult();
+            })
             .then((result) => {
                 this.ngZone.run(() => {
                     this.router.navigate(['home']);
