@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Авторизация</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="center">
+    <ion-row>
+      <ion-col>
+        <ion-button
+                type="submit"
+                color="primary"
+                (click)="authService.googleAuth()"
+                expand="block" style="margin-top: 40px">
+          Войти с помощью Google
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
